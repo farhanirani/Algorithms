@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<string.h>
 
-
-void lcs(char x[100], char y[100])
+void lcs(char *x, char *y)
 {
+    //finding the LCS and direction matrices
     int i,j,xlength,ylength;
     xlength=strlen(x);
     ylength=strlen(y);
@@ -35,19 +35,45 @@ void lcs(char x[100], char y[100])
             }
         }
     }
+    //to check the matrices, LCS values and directional matrix
+    // for(i=0;i<xlength+1;i++){
+    //     for(j=0;j<ylength+1;j++)
+    //         printf("%d  ",val[i][j]);
+    //     printf("\n");
+    // }
+    // for(i=1;i<xlength+1;i++){
+    //     printf("   ");
+    //     for(j=1;j<ylength+1;j++)
+    //         printf("%c  ",direction[i][j]);
+    //     printf("\n");
+    // }
 
-    for(i=0;i<xlength+1;i++){
-        for(j=0;j<ylength+1;j++)
-            printf("%d  ",val[i][j]);
-        printf("\n");
+    //to print the LCS
+
+    i=xlength;
+    j=ylength;
+    char final[i>j?i:j];
+    int temp=0;
+
+    while(i>=0 && j>=0)
+    {
+        if(direction[i][j]=='d')
+        {
+            final[temp++]=x[i-1];
+            i--;j--;
+        }
+        else if(direction[i][j]=='u')
+            i--;
+        else    
+            j--;
     }
-    for(i=1;i<xlength+1;i++){
-        printf("   ");
-        for(j=1;j<ylength+1;j++)
-            printf("%c  ",direction[i][j]);
-        printf("\n");
+    temp--;
+    //printing final in reverse order
+    printf("LCS IS : ");
+    while(temp!=-1){
+        printf("%c",final[temp]);
+        temp--;
     }
-    
 }
 
 void main()
