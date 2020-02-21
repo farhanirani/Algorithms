@@ -11,7 +11,7 @@ void binarysearch(int *a,int start, int end, int target)
     if(a[mid]==target){
         printf("element %d found at location %d",target,mid+1);
         exit(1);
-}                                       
+    }                                       
     else if(a[mid] > target)
             //new end would be mid-1, because target in the lower half
         binarysearch(a,start,mid-1,target);
