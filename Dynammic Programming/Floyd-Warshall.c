@@ -9,7 +9,7 @@ int min(int a,int b)
 void main()
 {
 	int size;
-	printf("entersize of matrix");
+	printf("enter size of matrix");
 	scanf("%d",&size);
 	int a[size][size];
 	int i,j,k;
