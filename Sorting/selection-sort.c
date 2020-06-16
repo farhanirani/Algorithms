@@ -9,7 +9,7 @@ void swap(int a[], int i, int j)
 
 void selectionsort(int a[],int length)
 {
-    int i,j, min, swapPos;
+    int i, j, swapPos;
     
     for(j=0; j<length-1; j++)
     {
